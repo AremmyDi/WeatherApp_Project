@@ -42,12 +42,16 @@ function formatDate (timestamp) {
   let day = weekDays[date.getDay()];
   return `${day} ${hours}:${minutes}`;
 }
-
+function displayForecast (response) {
+  console.log(response.data.list[0].main.temp);
+}
 function search (city) {
   let apiKey = "30e779d5dfda5389f3e7fff3e46e0d16";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-  
   axios.get(apiUrl).then(displayTemperature);
+
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function submitValue (event) {
