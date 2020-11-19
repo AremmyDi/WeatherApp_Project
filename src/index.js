@@ -63,6 +63,13 @@ function displayFahrenheit (event) {
   temperatureElement.innerHTML = fahrenheit;
 }
 
+function displayCelsius (event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  let celsius = Math.round(celsiusTemperature);
+  temperatureElement.innerHTML = celsius;
+}
+
 search("Paris");
 
 let form = document.querySelector("#search-form");
@@ -70,5 +77,8 @@ form.addEventListener("submit",submitValue);
 
 let fahrenheitLink = document.querySelector("#fahrenheit-Converter");
 fahrenheitLink.addEventListener("click",displayFahrenheit);
+
+let celsiusLink = document.querySelector("#celsius-Converter");
+celsiusLink.addEventListener("click",displayCelsius);
 
 let celsiusTemperature = null;
