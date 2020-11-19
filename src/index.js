@@ -43,7 +43,27 @@ function formatDate (timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 function displayForecast (response) {
-  console.log(response.data.list[0].main.temp);
+  let forecastElement = document.querySelector("#forecast");
+  forecastElement.innerHTML = null;
+  let forecast = null;
+
+  for (let index = 0; index < 6; index++) {
+    forecast = response.data.list[index];
+    forecastElement.innerHTML += 
+      `         
+        <div class="col-2">
+        <h4>
+          Sun
+        </h4>
+        <img src="http://openweathermap.org/img/wn/${
+          forecast.weather[0].icon
+        }@2x.png" alt="forecastIcon">
+        <div class="weather-forecast-temperature" id="forecast-temperature">
+          <span><strong>${Math.round(forecast.main.temp_max)}°</strong>| ${Math.round(forecast.main.temp_min)}°</span>
+        </div>
+        </div>
+      `
+  }
 }
 function search (city) {
   let apiKey = "30e779d5dfda5389f3e7fff3e46e0d16";
