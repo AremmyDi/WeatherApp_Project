@@ -6,7 +6,7 @@ function displayTemperature (response) {
   let windElement = document.querySelector("#wind");
   let dateElement = document.querySelector("#date");
   let iconElement = document.querySelector("#current-Icon");
-
+  celsiusTemperature = response.data.main.temp;
 
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
   cityElement.innerHTML = response.data.name;
@@ -56,7 +56,19 @@ function submitValue (event) {
   search(cityInputElement);
 }
 
+function displayFahrenheit (event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  let fahrenheit = Math.round((celsiusTemperature*9/5)+32);
+  temperatureElement.innerHTML = fahrenheit;
+}
+
 search("Paris");
 
 let form = document.querySelector("#search-form");
-form.addEventListener("submit",submitValue)
+form.addEventListener("submit",submitValue);
+
+let fahrenheitLink = document.querySelector("#fahrenheit-Converter");
+fahrenheitLink.addEventListener("click",displayFahrenheit);
+
+let celsiusTemperature = null;
