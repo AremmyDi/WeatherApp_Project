@@ -25,6 +25,10 @@ li {
   color: #878787;
 }
 
+li:first-letter {
+  text-transform: capitalize;
+}
+
 .app-wrapping {
   margin: 20px auto;
   max-width: 700px;
