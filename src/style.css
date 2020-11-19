@@ -60,4 +60,29 @@ li {
 
 .weather-forecast {
   margin-top: 10px;
+  text-align: center;
+}
+
+.weather-forecast h4 {
+  color: #878787;
+  margin-top: 10px;
+  font-size: 16px;
+  padding: 5px 0;
+  line-height: 17px;
+  font-weight: 500;
+}
+
+.weather-forecast img {
+  display: block;
+  height: 48px;
+  width: 48px;
+  margin-top: 2px;
+}
+
+.weather-forecast-temperature {
+  margin-top: 2px;
+  font-size: 14px;
+  line-height: 15px;
+  font-weight: 400;
+  color: #878787;
 }
