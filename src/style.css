@@ -90,3 +90,12 @@ li:first-letter {
   font-weight: 400;
   color: #878787;
 }
+
+.current-temperature .inactive {
+  color: rgb(33, 33, 33);
+  cursor: default;
+}
+
+.current-temperature .inactive:hover {
+  text-decoration: none;
+}
