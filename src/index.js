@@ -31,6 +31,12 @@ function formatDate (timestamp) {
     "Friday",
     "Saturday"
   ];
+  let day = weekDays[date.getDay()];
+  return `${day} ${formatHours(timestamp)}`;
+}
+
+function formatHours (timestamp) {
+  let date = new Date(timestamp);
   let hours = date.getHours();
     if (hours < 10) {
       hours = `0${hours}`;
@@ -39,9 +45,9 @@ function formatDate (timestamp) {
     if (minutes < 10) {
       minutes = `0${minutes}`;
     }
-  let day = weekDays[date.getDay()];
-  return `${day} ${hours}:${minutes}`;
+  return `${hours}:${minutes}`;
 }
+
 function displayForecast (response) {
   let forecastElement = document.querySelector("#forecast");
   forecastElement.innerHTML = null;
@@ -53,7 +59,7 @@ function displayForecast (response) {
       `         
         <div class="col-2">
         <h4>
-          Sun
+        ${formatHours(forecast.dt * 1000)}
         </h4>
         <img src="http://openweathermap.org/img/wn/${
           forecast.weather[0].icon
