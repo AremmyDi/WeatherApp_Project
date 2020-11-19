@@ -47,12 +47,13 @@
         </div>
         <div class="row">
           <div class="col-6">
-            <div class="current-temperature">
+            <div class="clearfix current-temperature">
               <img 
                 src="http://openweathermap.org/img/w/04n.png" 
                 alt="currentWeatherIcon" 
-                id=current-Icon>
-                <strong id="current-Temp">10</strong>
+                id=current-Icon
+                class="float-left">
+                <strong id="current-Temp-Value">10</strong>
                 <span class="units">ºC | ºF</span>
             </div>
           </div>
@@ -69,7 +70,7 @@
             </ul>
           </div>
         </div>
-        <div class="row">
+        <div class="row weather-forecast" id="forecast">
           <div class="col-2">
             <h4>
               Sun
